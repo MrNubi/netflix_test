@@ -31,7 +31,6 @@ export default function MovieModal({
             <p className="modal__details">
               <span className={Rcolor}>{Rnum}%</span>
               <span> for you</span>
-
               <h3 className="modal_block">
                 {release_date ? release_date : first_air_date}
               </h3>

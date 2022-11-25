@@ -4,11 +4,13 @@ import Nav from './components/Nav';
 import Row from './components/Row';
 import './App.css';
 import Footer from './components/Footer';
+import Clock2 from './components/clock/Clock2';
 
 function App() {
   return (
     <div className="app">
       <Nav />
+
       <Banner />
       <Row
         title="NETFLIX ORIGINALS"

@@ -12,6 +12,21 @@
   transition: all 0.5s;
 }
 
+.nav__clock1 {
+  position: fixed;
+  left: 360px;
+  width: 400px;
+  object-fit: contain;
+  color: turquoise;
+}
+.nav__clock2 {
+  position: fixed;
+  left: 360px;
+  width: 400px;
+  object-fit: contain;
+  background-color: white;
+}
+
 .nav__black {
   background-color: #111;
 }
