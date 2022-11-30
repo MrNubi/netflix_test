@@ -1,4 +1,5 @@
 import React from 'react';
+import requests from '../../api/request';
 import Banner from '../../components/Banner';
 import Row from '../../components/Row';
 

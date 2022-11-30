@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './Nav.css';
 
 function Nav() {
   const [show, setShow] = useState(false);
   const [searchValue, setSearchValue] = useState('');
-
-  const handleChange = () => {};
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+    navigate(`/search?q=${e.target.value}`);
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -35,7 +39,7 @@ function Nav() {
         onChange={handleChange}
         className="nav__input"
         type="text"
-        placeHolder="영화를 검색해 주세요"
+        placeholder="영화를 검색해 주세요"
       />
       <img
         alt="User logged"
