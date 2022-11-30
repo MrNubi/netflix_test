@@ -51,7 +51,10 @@ export default function Banner() {
           <div className="banner__buttons">
             <button
               className="banner__button play"
-              onClick={() => setIsClicked(true)}
+              onClick={() => {
+                setIsClicked(true);
+                console.log(movie);
+              }}
             >
               Play
             </button>

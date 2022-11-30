@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './Nav.css';
+import SerarchBar from './newSearchBar';
 
 function Nav() {
   const [show, setShow] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const navigate = useNavigate();
-  const handleChange = (e) => {
-    setSearchValue(e.target.value);
-    navigate(`/search?q=${e.target.value}`);
-  };
+  const [searchBtnClick, setSearchBtnClick] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -34,13 +32,9 @@ function Nav() {
         className="nav__logo"
         onClick={() => window.location.reload()}
       />
-      <input
-        value={searchValue}
-        onChange={handleChange}
-        className="nav__input"
-        type="text"
-        placeholder="영화를 검색해 주세요"
-      />
+      <div className="nav__input">
+        <SerarchBar />
+      </div>
       <img
         alt="User logged"
         src="https://occ-0-4796-988.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"

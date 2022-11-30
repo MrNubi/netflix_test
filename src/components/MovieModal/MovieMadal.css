@@ -10,7 +10,7 @@
   animation: fadeIn 400ms;
 }
 .modal__poster-img {
-  width: 100%;
+  width: 40%;
   height: auto;
 }
 .modal__content {
