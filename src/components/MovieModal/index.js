@@ -1,4 +1,5 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef } from 'react';
+import useOneClickOutside from '../hooks/useOneClickOutside';
 import '../MovieModal/MovieMadal.css';
 
 export default function MovieModal({
@@ -14,11 +15,17 @@ export default function MovieModal({
   const Rnum = Math.floor(Math.random() * 100) + 1;
   const Rcolor2 = Rnum <= 80 ? 'modal__user_perc2' : 'modal__user_perc3';
   const Rcolor = Rnum <= 30 ? 'modal__user_perc' : Rcolor2;
-
+  const ref = useRef();
+  useOneClickOutside(ref, () => {
+    setModalOpen(false);
+    // ref에는 madal 태그의 current가 들어감
+    // 이게 만약 아니면(false처리) 닫아야 하니까
+    // setModalOpen을 false로 하는 함수도 인자로 넣어주기
+  });
   return (
     <div className="presentation">
       <div className="wrapper-modal">
-        <div className="modal">
+        <div className="modal" ref={ref}>
           <span onClick={() => setModalOpen(false)} className="modal-close">
             X
           </span>
