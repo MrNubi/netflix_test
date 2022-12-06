@@ -54,6 +54,8 @@ export default function Banner() {
               onClick={() => {
                 console.log('playClicked', movie);
                 console.log('playClicked2', movie.videos.results.length);
+                console.log('playClicked2', movie.videos.results.length);
+
                 if (movie.videos.results.length > 0) {
                   setIsClicked(true);
                   console.log('isClicked', isClicked);
