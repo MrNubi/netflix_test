@@ -9,8 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Banner() {
   const [movie, setMovie] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [movieSellected, setMovieSellected] = useState({});
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -19,11 +18,6 @@ export default function Banner() {
 
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + '...' : str;
-  };
-
-  const handleInfoClick = (movie) => {
-    setModalOpen(true);
-    setMovieSellected(movie);
   };
 
   const fetchData = async () => {
@@ -92,9 +86,6 @@ export default function Banner() {
           </h1>
         </div>
         <div className="banner--fadeBottom" />
-        {modalOpen && (
-          <MovieModal {...movieSellected} setModalOpen={setModalOpen} />
-        )}
       </header>
     );
   } else {
