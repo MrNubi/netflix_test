@@ -36,6 +36,7 @@ export default function Banner() {
     });
     // const { data: movieDetail } -> movieDetail안에 저 값들을 넣음
     setMovie(movieDetail);
+    console.log('movieDetail', movieDetail);
   };
   if (!isClicked) {
     return (
