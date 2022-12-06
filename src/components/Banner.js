@@ -52,8 +52,17 @@ export default function Banner() {
             <button
               className="banner__button play"
               onClick={() => {
-                setIsClicked(true);
-                console.log(movie);
+                console.log('playClicked', movie);
+                console.log('playClicked2', movie.videos.results.length);
+                console.log('playClicked2', movie.videos.results.length);
+
+                if (movie.videos.results.length > 0) {
+                  setIsClicked(true);
+                  console.log('isClicked', isClicked);
+                  console.log('isClicked2', movie.videos.results.length);
+                } else {
+                  alert('비디오를 재생할 수 없습니다.');
+                }
               }}
             >
               Play
