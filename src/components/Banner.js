@@ -3,17 +3,27 @@ import React, { useState, useEffect } from 'react';
 import requests from '../api/request';
 import '../components/Banner.css';
 import styled from 'styled-components';
+import MovieModal from './MovieModal';
+import '../components/MovieModal/MovieMadal.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Banner() {
   const [movie, setMovie] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [movieSellected, setMovieSellected] = useState({});
   useEffect(() => {
     fetchData();
   }, []);
-
+  const navi = useNavigate();
   const [isClicked, setIsClicked] = useState(false);
 
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + '...' : str;
+  };
+
+  const handleInfoClick = (movie) => {
+    setModalOpen(true);
+    setMovieSellected(movie);
   };
 
   const fetchData = async () => {
@@ -66,7 +76,15 @@ export default function Banner() {
             >
               Play
             </button>
-            <button className="banner__button info">More Information</button>
+            <button
+              className="banner__button info"
+              onClick={() => {
+                console.log('infoClicked', movie);
+                navi(`/${movie.id}`);
+              }}
+            >
+              More Information
+            </button>
           </div>
 
           <h1 className="banner__description">
@@ -74,6 +92,9 @@ export default function Banner() {
           </h1>
         </div>
         <div className="banner--fadeBottom" />
+        {modalOpen && (
+          <MovieModal {...movieSellected} setModalOpen={setModalOpen} />
+        )}
       </header>
     );
   } else {
